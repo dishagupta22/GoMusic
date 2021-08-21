@@ -1,0 +1,6 @@
+<form action="/home/" method="POST" enctype="multipart/form-data">
+   {% csrf_token %}
+    <input type="text" name="category_name">
+    <input type="file" name="image">
+    <button name="add">ADD</button>
+</form>

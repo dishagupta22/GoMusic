@@ -1,0 +1,22 @@
+<form action="/addalbum/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <select name="cat_id_value" id="category">
+        {% for category in all_category %}
+          <option value="{{category.id}}">{{category.category_name}}</option>
+        {% endfor %}
+    </select>
+    <input type="text" name="album_name">
+    <input type="file" name="image">
+    <input type="number" name="age">
+    <input type="text" name="genre">
+    <button name="add">ADD</button>
+</form>
+<script>
+  window.onload = fn()
+  function fn ()
+  {
+  {% if message %}
+    alert("{{message}}");
+  {% endif %}
+  }
+</script>

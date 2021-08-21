@@ -1,0 +1,22 @@
+<form action="/addsong/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <select name="album_id" id="song_album">
+        {% for album in all_album %}
+          <option value="{{album.id}}">{{album.name}}</option>
+        {% endfor %}
+    </select>
+    <input type="text" name="song_name">
+    <input type="file" name="song_file">
+    <input type="text" name="dedicated_by">
+    <input type="text" name="dedicated_for">
+    <button name="add">ADD</button>
+</form>
+<script>
+  window.onload = fn()
+  function fn ()
+  {
+  {% if message %}
+    alert("{{message}}");
+  {% endif %}
+  }
+</script>

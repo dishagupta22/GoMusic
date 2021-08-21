@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% block title %}request{% endblock %}
+
+{% block body %}
+  <br>
+
+<table class="table table-danger table-hover">
+    <thead class="table-success" >
+        <tr>
+        <th>Song Title</th>
+        <th>Play</th>
+        </tr>
+    </thead>
+{% for song in allsong %}
+
+    <tbody >
+      <tr >
+        <td>{{ song.song_name }}</td>
+        <td>{% if song.song_file %}
+            <a href="{{song.song_file.url}}" target="_blank"><strong>PLAY</strong></a>
+            {% endif %}
+            <button><a href="/accept/{{song.id}}/">accept</a></button>
+            <button><a href="/reject/{{song.id}}/">reject</a></button> 
+        </td>
+          
+      </tr>
+{% endfor %}
+</tbody>
+</table>   
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% block title %}favourite{% endblock %}
+
+{% block body %}
+  <br>
+
+<table class="table table-danger table-hover">
+    <thead >
+        <tr>
+        <th>Song Title</th>
+        <th>Singer Name</th>
+        <th>Category</th>
+        <th>Play</th>
+        </tr>
+    </thead>
+{% for song in extend_user_object.songs_list.all %}
+
+    <tbody>
+      <tr>
+        <td>{{ song.song_name }}</td>
+        <td>{{ song.song_album.name }}</td>
+        <td>{{song.song_album.category.category_name}}</td>
+        <td>{% if song.song_file %}
+            <a href="{{song.song_file.url}}" target="_blank"><strong>PLAY</strong></a>
+            {% endif %}</td>
+      </tr>
+{% endfor %}
+</tbody>
+</table>   
+
+{% endblock %}
